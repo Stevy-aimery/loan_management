@@ -1,0 +1,2 @@
+Ceci est un fichier texte de remplacement pour l'image par défaut des appareils.
+Une vraie image nommée device-placeholder.png devrait être placée ici.

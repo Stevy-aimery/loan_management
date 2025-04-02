@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200px" height="200px" viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <g id="Logo-SING" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="Background" fill="#0A7B83" cx="100" cy="100" r="100"></circle>
+        <text id="SING" font-family="Arial-BoldMT, Arial" font-size="60" font-weight="bold" fill="#FFFFFF">
+            <tspan x="40" y="118">SING</tspan>
+        </text>
+        <path d="M50,50 L150,50" id="Line" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"></path>
+        <path d="M50,150 L150,150" id="Line-Copy" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"></path>
+        <path d="M30,75 L30,125" id="Line-Copy-2" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"></path>
+        <path d="M170,75 L170,125" id="Line-Copy-3" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"></path>
+    </g>
+</svg>

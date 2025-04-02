@@ -1,0 +1,50 @@
+<div class="scanner-container">
+  <div class="scanner-header">
+    <button class="back-button" (click)="goHome()">
+      <i class="bi bi-arrow-left"></i>
+    </button>
+    <h2 class="scanner-title">Scanner un appareil</h2>
+  </div>
+
+  <div class="scanner-content">
+    <div class="scanner-wrapper" *ngIf="scannerEnabled && !scanError">
+      <zxing-scanner
+        [formats]="allowedFormats"
+        [enable]="scannerEnabled"
+        (scanSuccess)="onScanSuccess($event)"
+        (scanError)="onScanError($event)"
+        (scanFailure)="onScanFailure($event)"
+      ></zxing-scanner>
+      
+      <div class="scanner-overlay">
+        <div class="scanner-target"></div>
+      </div>
+      
+      <div class="scanner-instructions">
+        <p>Placez le QR code de l'appareil dans le cadre</p>
+        <button class="torch-button" (click)="toggleTorch()">
+          <i class="bi bi-lightbulb"></i> Activer/Désactiver la lampe
+        </button>
+      </div>
+    </div>
+    
+    <div class="loading-container" *ngIf="loading">
+      <div class="spinner"></div>
+      <p>Vérification de l'appareil...</p>
+    </div>
+    
+    <div class="error-container" *ngIf="scanError">
+      <div class="error-icon">
+        <i class="bi bi-exclamation-triangle"></i>
+      </div>
+      <h3>Erreur</h3>
+      <p>{{ scanError }}</p>
+      <button class="action-button" (click)="resetScan()">
+        <i class="bi bi-arrow-repeat"></i> Réessayer
+      </button>
+      <button class="secondary-button" (click)="goHome()">
+        <i class="bi bi-house"></i> Retour à l'accueil
+      </button>
+    </div>
+  </div>
+</div>

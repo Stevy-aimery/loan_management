@@ -1,0 +1,43 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header bg-primary text-white">
+          <h3>Bienvenue dans l'application de Gestion des Prêts</h3>
+        </div>
+        <div class="card-body">
+          <p class="lead">Cette application vous permet de gérer les prêts d'appareils aux utilisateurs.</p>
+          <p>Utilisez le formulaire pour enregistrer les informations d'un prêt d'appareil.</p>
+          <div class="row mt-4">
+            <div class="col-md-6">
+              <div class="card mb-3">
+                <div class="card-header bg-info text-white">
+                  <h4>Scanner un code QR</h4>
+                </div>
+                <div class="card-body">
+                  <p>Scannez le code QR d'un appareil pour être redirigé vers le formulaire prérempli avec les informations de l'appareil.</p>
+                  <div class="d-grid gap-2">
+                    <button class="btn btn-info" (click)="simulerScanQR()">Simuler un scan QR</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-header bg-success text-white">
+                  <h4>Nouveau prêt</h4>
+                </div>
+                <div class="card-body">
+                  <p>Créez un nouveau prêt en remplissant le formulaire avec les informations de l'utilisateur et de l'appareil.</p>
+                  <div class="d-grid gap-2">
+                    <button class="btn btn-success" [routerLink]="['/formulaire']">Créer un nouveau prêt</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
