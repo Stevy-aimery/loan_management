@@ -9,4 +9,7 @@ router.get('/email/:email', userController.getUserByEmail);
 router.get('/:id', userController.getUserById);
 router.post('/', userController.createUser);
 
+// Route pour vérifier si un utilisateur existe déjà
+router.get('/exists/:email', userController.checkUserExists);
+
 module.exports = router;

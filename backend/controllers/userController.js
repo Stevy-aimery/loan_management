@@ -63,27 +63,32 @@ exports.getUserByEmail = async (req, res) => {
   }
 };
 
+// Vérifier si un utilisateur existe déjà par email
+exports.checkUserExists = async (req, res) => {
+  try {
+    const email = req.params.email;
+    const user = await User.findOne({ email });
+    if (user) {
+      return res.status(200).json({ exists: true, user });
+    }
+    res.status(200).json({ exists: false });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 // Créer un nouvel utilisateur
 exports.createUser = async (req, res) => {
   try {
     const { nom, prenom, email, telephone } = req.body;
-    
     // Vérifier si l'utilisateur existe déjà
     const existingUser = await User.findOne({ email });
     if (existingUser) {
-      return res.status(200).json(existingUser); // Retourner l'utilisateur existant
+      return res.status(400).json({ message: 'Utilisateur déjà enregistré' });
     }
-    
-    // Créer un nouvel utilisateur
-    const newUser = new User({
-      nom,
-      prenom,
-      email,
-      telephone
-    });
-    
-    const savedUser = await newUser.save();
-    res.status(201).json(savedUser);
+    const user = new User({ nom, prenom, email, telephone });
+    await user.save();
+    res.status(201).json({ message: 'Utilisateur enregistré avec succès', user });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
