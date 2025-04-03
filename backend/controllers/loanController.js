@@ -1,6 +1,6 @@
 const Loan = require('../models/loan');
 const User = require('../models/user');
-const Device = require('../models/device');
+const Device = require('../models/Device');
 
 // Récupérer un emprunt par son ID
 exports.getLoanById = async (req, res) => {
