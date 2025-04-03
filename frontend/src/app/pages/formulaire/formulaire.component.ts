@@ -47,15 +47,22 @@ export class FormulaireComponent implements OnInit {
     if (this.registrationForm.valid) {
       this.loading = true;
       const formData = this.registrationForm.value;
-      this.http.post('/api/users', formData).subscribe((response: any) => {
-        this.loading = false;
-        this.success = true;
-        alert('Enregistrement réussi !');
-        this.router.navigate(['/next-step']); // Navigate to the next page after registration
-      }, error => {
-        this.loading = false;
-        this.error = error.error.message || 'Une erreur est survenue lors de l\'enregistrement.';
-      });
+      console.log('Submitting form data:', formData); // Debugging log
+      this.http.post('/api/users', formData).subscribe(
+        (response: any) => {
+          console.log('Response received:', response); // Debugging log
+          this.loading = false;
+          this.success = true;
+          alert('Enregistrement réussi !');
+          this.router.navigate(['/next-step']); // Navigate to the next page after registration
+        },
+        (error) => {
+          console.error('Error during registration:', error); // Debugging log
+          console.error('Full error response:', error); // Log full error response for debugging
+          this.loading = false;
+          this.error = error.error.message || 'Une erreur est survenue lors de l\'enregistrement.';
+        }
+      );
     } else {
       this.error = 'Veuillez remplir tous les champs correctement.';
     }
